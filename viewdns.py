@@ -23,17 +23,17 @@ Mister Spy Tool View Dns Unlimited
 
 '''
 
-print red + logo + white
+print (red + logo + white)
 
 
 def taz(i):
     try:
         i = i.replace('\n', '').replace('\r', '')
-        api = 'https://viewdns.info/reverseip/?host=' + i + '&t=1'
+        api = 'https://rapiddns.io/sameip/" + i + "?full=1#result'
         while True:
             request = req_proxy.generate_proxied_request(api)
             if '.com' in request.text:
-                mrspy = re.findall('</tr><tr> <td>(.*?)</td><td align="center">', request.text)
+                mrspy = re.findall('</th>\n<td>(.*?)</td>', request.text)
                 for i in mrspy:
                     if i.startswith("http//"):
                         print 'http://'+i
@@ -47,10 +47,10 @@ def taz(i):
                 break
     except:
         pass
-        print 'Maybe Your Internet Too Bad Or Not Working Contact Mr Spy'
+        print ('Maybe Your Internet Too Bad Or Not Working Contact Mr Spy')
 
 
-ListPass = open(raw_input("Ips List .txt:"), 'r').readlines()
+ListPass = open(input("Ips List .txt:"), 'r').readlines()
 pool = ThreadPool(100)
 pool.map(taz, ListPass)
 pool.close()
