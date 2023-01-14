@@ -29,11 +29,11 @@ print red + logo + white
 def taz(i):
     try:
         i = i.replace('\n', '').replace('\r', '')
-        api = 'https://viewdns.info/reverseip/?host=' + i + '&t=1'
+        api = 'https://rapiddns.io/sameip/" + i + "?full=1#result'
         while True:
             request = req_proxy.generate_proxied_request(api)
             if '.com' in request.text:
-                mrspy = re.findall('</tr><tr> <td>(.*?)</td><td align="center">', request.text)
+                mrspy = re.findall('</th>\n<td>(.*?)</td>', request.text)
                 for i in mrspy:
                     if i.startswith("http//"):
                         print 'http://'+i
