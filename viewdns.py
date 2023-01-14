@@ -36,13 +36,13 @@ def taz(i):
                 mrspy = re.findall('</th>\n<td>(.*?)</td>', request.text)
                 for i in mrspy:
                     if i.startswith("http//"):
-                        print 'http://'+i
+                        print ('http://')+i
                         open('Grabbed.txt', "a").write('http://'+i + "\n")
                     elif i.startswith("https//"):
-                        print 'http://'+i
+                        print ('http://')+i
                         open('Grabbed.txt', "a").write('http://'+i + "\n")
                     else:
-                        print 'http://'+i
+                        print ('http://')+i
                         open('Grabbed.txt', "a").write('http://'+i + "\n")
                 break
     except:
